@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALAF Legal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+.logo-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo-hero img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #000000 0%, #111111 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 430px;
+      padding: 24px 18px 40px;
+    }
+
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .logo-wrap img {
+      width: 220px;
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: #cfcfcf;
+      margin: 0;
+    }
+
+    .hero-title {
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.2;
+      margin: 10px 0 10;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hero-desc {
+      text-align: center;
+      color: #b3b3b3;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 24px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+    }
+
+    h2, h3 {
+      margin-top: 0;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #9e9e9e;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .upload-box {
+      border: 1px dashed rgba(255, 166, 0, 0.5);
+      background: rgba(255, 140, 0, 0.05);
+      padding: 18px;
+      border-radius: 14px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .upload-box input[type="file"] {
+      width: 100%;
+      color: #ffffff;
+    }
+
+    .file-name {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #f5c26b;
+      word-break: break-word;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      background: linear-gradient(90deg, #ffb300 0%, #ff7a00 100%);
+      border: none;
+      color: #111111;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      opacity: 0.94;
+      transform: translateY(-1px);
+    }
+
+    .secondary-btn {
+      background: transparent;
+      color: #f7b84b;
+      border: 1px solid rgba(247, 184, 75, 0.5);
+    }
+
+    .option {
+      border: 1px solid rgba(255, 166, 0, 0.45);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 14px;
+      margin-top: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .option:hover {
+      background: rgba(255, 166, 0, 0.08);
+      border-color: rgba(255, 166, 0, 0.8);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      resize: vertical;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      outline: none;
+    }
+
+    textarea::placeholder {
+      color: #9f9f9f;
+    }
+
+    .status-box {
+      text-align: center;
+      padding: 24px 10px;
+    }
+
+    .spinner {
+      width: 52px;
+      height: 52px;
+      border: 4px solid rgba(255, 255, 255, 0.12);
+      border-top: 4px solid #ff9800;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .result-section {
+      margin-bottom: 18px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .result-section h4 {
+      margin: 0 0 10px;
+      color: #ffb347;
+      font-size: 15px;
+    }
+
+    .result-section p,
+    .result-section li,
+    .result-section pre {
+      margin: 0;
+      color: #e6e6e6;
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .case-list {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .top-badge {
+      display: inline-block;
+      font-size: 11px;
+      color: #f4c16d;
+      background: rgba(255, 166, 0, 0.08);
+      border: 1px solid rgba(255, 166, 0, 0.2);
+      border-radius: 999px;
+      padding: 7px 12px;
+      margin: 0 auto 10px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .footer-note {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 11px;
+      color: #8a8a8a;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 380px) {
+      .hero-title {
+        font-size: 24px;
+      }
+
+      .container {
+        padding: 18px 14px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="step1">
+        <div class="logo-hero">
+        <img src="alaf_logo.png" alt="ALAF Logo" />
+        </div>
+      <h1 class="hero-title">Dosyanı yükle, dilekçen hazır olsun</h1>
+      <p class="hero-desc">
+        Yargıtay ve BAM kararlarına dayalı akıllı analiz akışıyla,
+        kullanıcıya prompt yazdırmadan hukuki taslak üretimi.
+      </p>
+
+      <div class="card">
+        <div class="upload-box">
+          <input type="file" id="fileInput" accept=".pdf,.txt,.doc,.docx" onchange="handleFileSelect()" />
+          <div id="fileName" class="file-name"></div>
+        </div>
+
+        <p class="small">
+          Yüklenen dosyalar MVP akışında kalıcı olarak saklanmaz. İşlem sonrası geçici veri temizlenir.
+        </p>
+
+        <button onclick="goToStep(2)">Başla</button>
+      </div>
+    </div>
+
+    <div id="step2" class="hidden">
+      <div class="logo-wrap">
+        <img src="alaf_logo.jpeg" alt="ALAF Logo" style="width: 150px;" />
+      </div>
+
+      <div class="card">
+        <h2>Ne yapmak istiyorsun?</h2>
+        <p class="small">Kullanıcıdan serbest prompt almak yerine yönlendirmeli akış kullanılır.</p>
+
+        <div class="option" onclick="selectAction('Savunma')">Savunma Hazırla</div>
+        <div class="option" onclick="selectAction('İtiraz')">İtiraz Dilekçesi Hazırla</div>
+        <div class="option" onclick="selectAction('İstinaf')">İstinaf Taslağı Hazırla</div>
+
+        <button class="secondary-btn" onclick="goToStep(1)">Geri Dön</button>
+      </div>
+    </div>
+
+    <div id="step3" class="hidden">
+      <div class="logo-wrap">
+        <img src="alaf_logo.jpeg" alt="ALAF Logo" style="width: 150px;" />
+      </div>
+
+      <div class="card">
+        <h2>Ek savunma veya açıklama</h2>
+        <p class="small">
+          Demo için şu anahtar kelimeleri deneyebilirsin: <b>dolandırıcılık</b>, <b>hakaret</b>, <b>icra</b>
+        </p>
+
+        <textarea
+          id="defenseText"
+          placeholder="Örnek: Hakkımdaki dolandırıcılık suçlamasını kabul etmiyorum...
+Örnek: Hakaret kastım bulunmamaktadır...
+Örnek: İcra takibine konu borca itiraz ediyorum..."
+        ></textarea>
+
+        <button onclick="startAnalysis()">Analiz Et</button>
+        <button class="secondary-btn" onclick="goToStep(2)">Geri Dön</button>
+      </div>
+    </div>
+
+    <div id="step4" class="hidden">
+      <div class="logo-wrap">
+        <img src="alaf_logo.jpeg" alt="ALAF Logo" style="width: 150px;" />
+      </div>
+
+      <div class="card status-box">
+        <div class="spinner"></div>
+        <h2>Dosyan analiz ediliyor...</h2>
+        <p class="small">İçtihatlar taranıyor, olay örgüsü çözümleniyor ve taslak hazırlanıyor.</p>
+      </div>
+    </div>
+
+    <div id="step5" class="hidden">
+      <div class="logo-wrap">
+        <img src="alaf_logo.jpeg" alt="ALAF Logo" style="width: 150px;" />
+      </div>
+
+      <div class="card">
+        <h2>Analiz Sonucu</h2>
+
+        <div class="result-section">
+          <h4>Olay Özeti</h4>
+          <p id="summaryText"></p>
+        </div>
+
+        <div class="result-section">
+          <h4>Genel Risk Değerlendirmesi</h4>
+          <p id="riskText"></p>
+        </div>
+
+        <div class="result-section">
+          <h4>Emsal Kararlar</h4>
+          <ul class="case-list" id="caseList"></ul>
+        </div>
+
+        <div class="result-section">
+          <h4>Hazırlanan Dilekçe</h4>
+          <pre id="petitionText"></pre>
+        </div>
+
+        <button onclick="downloadPetition()">Dilekçeyi İndir</button>
+        <button class="secondary-btn" onclick="restartDemo()">Yeni İşlem Başlat</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let selectedAction = "";
+    let selectedFileName = "";
+
+    function hideAllSteps() {
+      for (let i = 1; i <= 5; i++) {
+        document.getElementById("step" + i).classList.add("hidden");
+      }
+    }
+
+    function goToStep(stepNumber) {
+      hideAllSteps();
+      document.getElementById("step" + stepNumber).classList.remove("hidden");
+    }
+
+    function handleFileSelect() {
+      const input = document.getElementById("fileInput");
+      const fileNameEl = document.getElementById("fileName");
+
+      if (input.files && input.files[0]) {
+        selectedFileName = input.files[0].name;
+        fileNameEl.textContent = "Seçilen dosya: " + selectedFileName;
+      } else {
+        selectedFileName = "";
+        fileNameEl.textContent = "";
+      }
+    }
+
+    function selectAction(action) {
+      selectedAction = action;
+      goToStep(3);
+    }
+
+    function startAnalysis() {
+      goToStep(4);
+
+      setTimeout(() => {
+        generateResult();
+        goToStep(5);
+      }, 1800);
+    }
+
+    function generateResult() {
+      const defense = document.getElementById("defenseText").value.trim();
+      const lowerDefense = defense.toLocaleLowerCase("tr-TR");
+
+      let summary = "";
+      let risk = "";
+      let cases = [];
+      let petition = "";
+
+      if (lowerDefense.includes("dolandırıcılık")) {
+        summary = `Yüklenen dosya ve kullanıcı beyanı üzerinden yapılan örnek değerlendirmede, içerikte dolandırıcılık iddiasına ilişkin savunma ekseni tespit edilmiştir. Sistem, aldatma unsuru, hileli davranış iddiası ve maddi menfaat bağlantısı gibi başlıkları inceleyerek kullanıcı lehine taslak savunma kurgulamıştır.`;
+
+        risk = `Dolandırıcılık senaryosunda temel risk alanları; hile unsurunun var kabul edilmesi, para transferi veya menfaat ilişkisine dair kayıtların dosyada bulunması ve mağdur beyanlarının destekleyici delillerle güçlendirilmesidir. Savunmanın, kastın bulunmadığı ve ticari/özel hukuk uyuşmazlığı niteliği taşıdığı eksende kurulması önemlidir.`;
+
+        cases = [
+          "Yargıtay 15. Ceza Dairesi – Dolandırıcılık suçunda hile unsurunun değerlendirilmesine ilişkin karar",
+          "İstanbul BAM 7. Ceza Dairesi – Taraflar arasındaki ilişkinin hukuki ihtilaf mı ceza sorumluluğu mu doğurduğuna dair örnek karar",
+          "Yargıtay Ceza Genel Kurulu – Menfaat temini ve kast unsuru yönünden inceleme örneği"
+        ];
+
+        petition = `
+${selectedAction.toUpperCase()} DİLEKÇESİ TASLAĞI
+
+1. OLAYIN ÖZETİ
+Dosyada yer alan iddialar kapsamında müvekkil / başvuran hakkında dolandırıcılık suçlamasına dayalı değerlendirme yapılmıştır.
+
+2. İDDİALAR / DEĞERLENDİRİLEN HUSUSLAR
+Suçlamanın, hileli davranışla karşı tarafın aldatıldığı ve bu suretle haksız menfaat temin edildiği iddiasına dayandığı anlaşılmaktadır.
+
+3. SAVUNMA / AÇIKLAMALAR
+${defense || "Dolandırıcılık suçlamasına ilişkin kullanıcı açıklaması girilmemiştir."}
+
+Somut olayda kast unsuru ve hileli davranış şartları oluşmamıştır. Taraflar arasındaki ilişki ceza hukuku kapsamında değil, özel hukuk / ticari ilişki kapsamında değerlendirilmelidir.
+
+4. HUKUKİ DAYANAK
+TCK ilgili hükümleri, kast unsuru, hile şartı ve Yargıtay içtihatları çerçevesinde değerlendirme yapılmalıdır.
+
+5. EMSAL KARARLAR
+- Dolandırıcılık suçunda hile unsurunun açık biçimde ortaya konulması gerektiğine ilişkin Yargıtay kararları
+- Borç ilişkisi ile ceza sorumluluğunun ayrımına dair BAM kararları
+
+6. SONUÇ VE TALEP
+Açıklanan nedenlerle, dolandırıcılık suçunun unsurlarının oluşmadığı gözetilerek talebin kabulüne / müvekkil lehine değerlendirme yapılmasına karar verilmesi saygıyla arz olunur.
+        `.trim();
+
+      } else if (lowerDefense.includes("hakaret")) {
+        summary = `Yüklenen dosya ve kullanıcı açıklaması birlikte değerlendirildiğinde, içerikte hakaret iddiasına yönelik savunma ihtiyacı tespit edilmiştir. Sistem; sözlerin bağlamı, ifade özgürlüğü sınırı, kast unsuru ve muhatabın belirlenebilirliği gibi temel hukuki eksenleri dikkate alarak örnek taslak oluşturmuştur.`;
+
+        risk = `Hakaret senaryosunda başlıca risk alanları; kullanılan ifadenin doğrudan onur, şeref ve saygınlığı rencide edici nitelikte görülmesi, beyanın aleni kabul edilmesi ve sözlerin belirli kişiye yöneltildiğinin sabit sayılmasıdır. Savunmada bağlam, karşılıklı tartışma ortamı ve eleştiri sınırları önem taşır.`;
+
+        cases = [
+          "Yargıtay 18. Ceza Dairesi – Hakaret suçunda ifade özgürlüğü ve eleştiri sınırına ilişkin karar",
+          "Ankara BAM 3. Ceza Dairesi – Sözlerin hakaret mi ağır eleştiri mi olduğuna dair örnek inceleme",
+          "Yargıtay Ceza Genel Kurulu – Muhatabın belirlenebilirliği ve aleniyet yönünden değerlendirme kararı"
+        ];
+
+        petition = `
+${selectedAction.toUpperCase()} DİLEKÇESİ TASLAĞI
+
+1. OLAYIN ÖZETİ
+Dosyada, başvuran / müvekkil hakkında hakaret içerdiği ileri sürülen söz veya beyanlara ilişkin değerlendirme yapılmıştır.
+
+2. İDDİALAR / DEĞERLENDİRİLEN HUSUSLAR
+İsnadın, belirli ifadelerin muhatabın onur, şeref ve saygınlığını rencide ettiği iddiasına dayandığı anlaşılmaktadır.
+
+3. SAVUNMA / AÇIKLAMALAR
+${defense || "Hakaret iddiasına ilişkin kullanıcı açıklaması girilmemiştir."}
+
+Somut olayda kullanılan ifadeler hakaret kastıyla söylenmemiş olup olayın bütünlüğü içinde değerlendirilmesi gerekmektedir. Beyanlar ağır eleştiri kapsamında kalmakta olup suçun unsurları oluşmamaktadır.
+
+4. HUKUKİ DAYANAK
+TCK hakaret hükümleri, ifade özgürlüğü ilkesi ve emsal Yargıtay kararları dikkate alınmalıdır.
+
+5. EMSAL KARARLAR
+- Ağır eleştiri ile hakaret ayrımına ilişkin Yargıtay kararları
+- Aleniyet ve kast unsuru yönünden BAM değerlendirmeleri
+
+6. SONUÇ VE TALEP
+Yukarıda açıklanan nedenlerle, hakaret suçunun yasal unsurları oluşmadığından talebin kabulüne / lehe değerlendirme yapılmasına karar verilmesini saygıyla arz ederiz.
+        `.trim();
+
+      } else if (lowerDefense.includes("icra")) {
+        summary = `Yüklenen metin ve kullanıcı beyanı üzerinden yapılan örnek incelemede, icra takibine konu alacak veya borç ilişkisinden kaynaklanan itiraz / savunma ihtiyacı tespit edilmiştir. Sistem, borca itiraz, yetki itirazı, faiz ve usul yönünden temel değerlendirme başlıklarını esas alarak taslak üretmiştir.`;
+
+        risk = `İcra senaryosunda risk alanları; itiraz süresinin kaçırılması, borç ilişkisinin belgeyle desteklenmesi, takibin dayanağının yazılı evrakla kuvvetli olması ve usulüne uygun tebligatın varlığıdır. Savunmanın süre, yetki, faiz ve borcun niteliği ekseninde kurulması gerekir.`;
+
+        cases = [
+          "Yargıtay 12. Hukuk Dairesi – İcra takibine itirazda süre ve usul yönünden örnek karar",
+          "İstanbul BAM Hukuk Dairesi – Borca itiraz ve belge değerlendirmesine ilişkin örnek karar",
+          "Yargıtay 11. Hukuk Dairesi – Ticari alacak ve icra takibi ilişkisinin incelenmesine dair karar"
+        ];
+
+        petition = `
+${selectedAction.toUpperCase()} DİLEKÇESİ TASLAĞI
+
+1. OLAYIN ÖZETİ
+Başvuru konusu olayda, icra takibine dayalı talep ve buna karşı geliştirilecek itiraz / savunma gerekçeleri değerlendirilmiştir.
+
+2. İDDİALAR / DEĞERLENDİRİLEN HUSUSLAR
+Takibin dayanağının alacak-borç ilişkisine, ödeme iddiasına veya yazılı belgeye dayandığı anlaşılmaktadır.
+
+3. SAVUNMA / AÇIKLAMALAR
+${defense || "İcra takibine ilişkin kullanıcı açıklaması girilmemiştir."}
+
+Takibe konu borç kabul edilmemekte / borcun miktarı ve ferileri ihtilaflı bulunmaktadır. Gerek usule gerek esasa ilişkin itirazlarımız saklıdır.
+
+4. HUKUKİ DAYANAK
+İcra ve İflas Kanunu hükümleri, süre kuralları, tebligat ve borca itiraz çerçevesinde değerlendirme yapılmalıdır.
+
+5. EMSAL KARARLAR
+- Borca itiraz sürelerine ilişkin Yargıtay kararları
+- Takibin dayanağı belgenin ispat gücüne ilişkin BAM kararları
+
+6. SONUÇ VE TALEP
+Yukarıda açıklanan nedenlerle, icra takibine yönelik itirazlarımızın kabulü ile başvuran lehine karar verilmesini saygıyla arz ederiz.
+        `.trim();
+
+      } else {
+        summary = selectedFileName
+          ? `"${selectedFileName}" isimli dosya üzerinden yapılan örnek analizde, kullanıcı tarafından ${selectedAction.toLowerCase()} talebine uygun hukuki taslak oluşturulmuştur. Sistem olay örgüsünü, iddiaları ve savunma eksenini temel alarak yönlendirmeli çıktı üretmiştir.`
+          : `Yüklenen içerik üzerinden yapılan örnek analizde, kullanıcı tarafından ${selectedAction.toLowerCase()} talebine uygun hukuki taslak oluşturulmuştur. Sistem olay örgüsünü, iddiaları ve savunma eksenini temel alarak yönlendirmeli çıktı üretmiştir.`;
+
+        risk = `Bu genel demo senaryosunda temel risk alanları; delil yetersizliği, olay örgüsünün eksik anlatılması ve usuli sürelere ilişkin belirsizliklerdir. Nihai sürümde karar destek sistemiyle daha net sınıflandırma yapılacaktır.`;
+
+        cases = [
+          "Yargıtay 12. Ceza Dairesi – Genel değerlendirme örneği",
+          "İstanbul BAM 5. Ceza Dairesi – Usuli inceleme örneği",
+          "Yargıtay 4. Hukuk Dairesi – Savunma metni dayanaklandırma örneği"
+        ];
+
+        petition = `
+${selectedAction.toUpperCase()} DİLEKÇESİ TASLAĞI
+
+1. OLAYIN ÖZETİ
+Yüklenen dosya ve kullanıcı beyanı doğrultusunda olayın temel çerçevesi değerlendirilmiştir.
+
+2. İDDİALAR / DEĞERLENDİRİLEN HUSUSLAR
+Dosyada yer alan iddialar, maddi olay örgüsü ve mevcut savunma zemini birlikte ele alınmıştır.
+
+3. SAVUNMA / AÇIKLAMALAR
+${defense || "Kullanıcı tarafından ek açıklama girilmemiştir. Nihai sürümde sistem dosya içeriğine göre otomatik savunma üretir."}
+
+4. HUKUKİ DAYANAK
+İlgili mevzuat, emsal kararlar ve süreçsel değerlendirmeler birlikte yorumlanacaktır.
+
+5. EMSAL KARARLAR
+- Yargıtay ve BAM içtihatları doğrultusunda ilgili kararlar getirilecektir.
+- Benzer olaylara dair seçilmiş karar özetleri metne entegre edilecektir.
+
+6. SONUÇ VE TALEP
+Yukarıda arz ve izah olunan nedenlerle, talebin kabulü / değerlendirmenin kullanıcı lehine yorumlanması saygıyla talep olunur.
+        `.trim();
+      }
+
+      document.getElementById("summaryText").textContent = summary;
+      document.getElementById("riskText").textContent = risk;
+
+      const caseList = document.getElementById("caseList");
+      caseList.innerHTML = "";
+      cases.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        caseList.appendChild(li);
+      });
+
+      document.getElementById("petitionText").textContent = petition;
+    }
+
+    function downloadPetition() {
+      const text = document.getElementById("petitionText").textContent;
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "alaf-legal-dilekce-taslagi.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      URL.revokeObjectURL(url);
+    }
+
+    function restartDemo() {
+      selectedAction = "";
+      selectedFileName = "";
+      document.getElementById("fileInput").value = "";
+      document.getElementById("fileName").textContent = "";
+      document.getElementById("defenseText").value = "";
+      document.getElementById("summaryText").textContent = "";
+      document.getElementById("riskText").textContent = "";
+      document.getElementById("caseList").innerHTML = "";
+      document.getElementById("petitionText").textContent = "";
+      goToStep(1);
+    }
+  </script>
+</body>
+</html>
